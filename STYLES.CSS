@@ -1,0 +1,114 @@
+/* Global reset to remove default margin, padding, and box-sizing for all elements */
+* {
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+}
+
+/* Removes the default bullet points from the unordered list (ul) */
+.container ul {
+    list-style: none; /* Disables the default list bullets for the unordered list */
+}
+
+/* Adds a pseudo-element before each list item (li) to show the icon */
+.container ul li::before {
+    content: attr(data-icon); /* Fetches the value of the data-icon attribute and inserts it */
+    font-family: 'Font Awesome 6 Free'; /* Specifies the font to be used for FontAwesome icons */
+    font-weight: 900; /* Ensures the icon is bold */
+    margin-right: 8px; /* Adds space to the right of the icon */
+}
+
+/* Styles for the container div to center the navigation items */
+.container {
+    display: flex; /* Uses flexbox to align child elements */
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+/* Styles the unordered list (ul) by adding margins, padding, and transforming the list */
+ul {
+    margin-top: 100px; /* Adds a 100px margin at the top of the list */
+    padding: 50px; /* Adds padding inside the list */
+    position: relative; /* Sets position to relative to control absolute positioning of children */
+    transform: skewY(-15deg); /* Skews the list items in the Y-axis by -15 degrees for a tilted effect */
+}
+
+/* Styles for each list item (li) */
+li {
+    position: relative; /* Sets position to relative to control absolute positioning of pseudo-elements */
+    list-style: none; /* Ensures no default list item marker */
+    width: 200px; /* Sets a fixed width for each list item */
+    padding: 15px; /* Adds padding inside each list item */
+    background: #3e3f46; /* Sets a dark gray background color */
+    z-index: calc(1 * var(--i)); /* Uses the --i CSS variable to position the list items in layers */
+    transition: 0.5s; /* Applies a smooth transition effect for changes (like hover) */
+}
+
+/* Styles for the list item when hovered */
+li:hover {
+    background: #996fae; /* Changes background color to a purple hue when hovered */
+    transform: translateX(-50px); /* Moves the list item to the left by 50px */
+}
+
+/* Styles for the icon (before pseudo-element) of the list item */
+li::before {
+    font-family: "FontAwesome"; /* Specifies the FontAwesome font for the icon */
+    color: #999; /* Sets a light gray color for the icon */
+    display: flex; /* Uses flexbox to align the icon inside the pseudo-element */
+    justify-content: center; /* Centers the icon horizontally */
+    align-items: center; /* Centers the icon vertically */
+    content: attr(data-icon); /* Inserts the content from the data-icon attribute */
+    position: absolute; /* Positions the icon absolutely within the li */
+    top: 0; /* Aligns the icon at the top of the list item */
+    left: -40px; /* Places the icon 40px to the left of the list item */
+    width: 40px; /* Sets the width of the icon container */
+    height: 100%; /* Makes the icon container fill the height of the list item */
+    background: #2e3133; /* Sets a dark background for the icon container */
+    transform-origin: right; /* Sets the point of rotation for the transform to the right */
+    transform: skewY(45deg); /* Skews the icon container by 45 degrees in the Y-axis */
+    transition: 0.5s; /* Applies a smooth transition for changes */
+}
+
+/* Styles for the icon when the list item is hovered */
+li:hover::before {
+    background: #7b5190; /* Changes the background color of the icon container to a purple hue on hover */
+}
+
+/* Adds a pseudo-element after the list item for decorative effect */
+li::after {
+    content: ""; /* Inserts an empty content for the after pseudo-element */
+    position: absolute; /* Positions the pseudo-element absolutely within the li */
+    top: -40px; /* Positions it 40px above the list item */
+    left: 0px; /* Aligns it to the left of the list item */
+    width: 100%; /* Makes the pseudo-element span the entire width of the list item */
+    height: 40px; /* Sets the height of the pseudo-element */
+    background: #35383e; /* Adds a dark background color */
+    transform-origin: bottom; /* Sets the point of rotation for the transform to the bottom */
+    transform: skewX(45deg); /* Skews the pseudo-element by 45 degrees in the X-axis */
+    transition: 0.5s; /* Applies a smooth transition for changes */
+}
+
+/* Styles for the pseudo-element after the list item when hovered */
+li:hover::after {
+    background: #86589d; /* Changes the background color to a lighter purple on hover */
+}
+
+/* Styles for the anchor tag inside each list item */
+li a {
+    text-decoration: none; /* Removes the default underline from the link */
+    color: #999; /* Sets the text color to light gray */
+    display: block; /* Makes the anchor tag behave like a block element */
+    text-transform: uppercase; /* Makes the text all uppercase */
+    letter-spacing: 0.05em; /* Adds spacing between the letters */
+    transition: 0.5s; /* Applies a smooth transition effect for color changes */
+}
+
+/* Styles for the anchor tag when the list item is hovered */
+li:hover a {
+    color: #fff; /* Changes the text color to white on hover */
+}
+
+/* Special styling for the last list item */
+li:last-child::after {
+    box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.75); /* Adds a shadow to the last list item after pseudo-element */
+}
